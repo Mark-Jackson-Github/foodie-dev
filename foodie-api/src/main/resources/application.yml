@@ -12,7 +12,7 @@ spring:
   datasource: # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource # 数据源类型：HikariCP
     driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动
-    url: jdbc:mysql://42.194.178.153:3306/foodie_shop?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&tinyInt1isBit=false
+    url: jdbc:mysql://127.0.0.1:3306/foodie_shop?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&tinyInt1isBit=false
     username: foodie_shop
     password: 123456
   hikari:
