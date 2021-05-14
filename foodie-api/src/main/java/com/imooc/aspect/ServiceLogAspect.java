@@ -19,13 +19,13 @@ public class ServiceLogAspect {
         long t = end - start;
         //类名joinPoint.getTarget().getClass()
         //方法名joinPoint.getSignature().getName()
-        if(t>=3000){
-            log.error("========{}#{} 执行结束，耗时:{} 毫秒 ========",joinPoint.getTarget().getClass(),joinPoint.getSignature().getName(),t);
-        }else if (t>=2000){
-            log.warn("========{}#{} 执行结束，耗时:{} 毫秒 ========",joinPoint.getTarget().getClass(),joinPoint.getSignature().getName(),t);
-        }else {
-            log.info("========{}#{} 执行结束，耗时:{} 毫秒 ========",joinPoint.getTarget().getClass(),joinPoint.getSignature().getName(),t);
-        }
+//        if(t>=3000){
+//            log.error("========{}#{} 执行结束，耗时:{} 毫秒 ========",joinPoint.getTarget().getClass(),joinPoint.getSignature().getName(),t);
+//        }else if (t>=2000){
+//            log.warn("========{}#{} 执行结束，耗时:{} 毫秒 ========",joinPoint.getTarget().getClass(),joinPoint.getSignature().getName(),t);
+//        }else {
+//            log.info("========{}#{} 执行结束，耗时:{} 毫秒 ========",joinPoint.getTarget().getClass(),joinPoint.getSignature().getName(),t);
+//        }
         return object;
     }
 
