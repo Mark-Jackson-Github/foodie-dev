@@ -69,4 +69,75 @@ public class Items implements Serializable {
     private LocalDateTime updatedTime;
 
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public Integer getCatId() {
+        return catId;
+    }
+
+    public void setCatId(Integer catId) {
+        this.catId = catId;
+    }
+
+    public Integer getRootCatId() {
+        return rootCatId;
+    }
+
+    public void setRootCatId(Integer rootCatId) {
+        this.rootCatId = rootCatId;
+    }
+
+    public Integer getSellCounts() {
+        return sellCounts;
+    }
+
+    public void setSellCounts(Integer sellCounts) {
+        this.sellCounts = sellCounts;
+    }
+
+    public Integer getOnOffStatus() {
+        return onOffStatus;
+    }
+
+    public void setOnOffStatus(Integer onOffStatus) {
+        this.onOffStatus = onOffStatus;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public LocalDateTime getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public LocalDateTime getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(LocalDateTime updatedTime) {
+        this.updatedTime = updatedTime;
+    }
 }

@@ -70,4 +70,75 @@ public class ItemsSpec implements Serializable {
     private LocalDateTime updatedTime;
 
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
+    public BigDecimal getDiscounts() {
+        return discounts;
+    }
+
+    public void setDiscounts(BigDecimal discounts) {
+        this.discounts = discounts;
+    }
+
+    public Integer getPriceDiscount() {
+        return priceDiscount;
+    }
+
+    public void setPriceDiscount(Integer priceDiscount) {
+        this.priceDiscount = priceDiscount;
+    }
+
+    public Integer getPriceNormal() {
+        return priceNormal;
+    }
+
+    public void setPriceNormal(Integer priceNormal) {
+        this.priceNormal = priceNormal;
+    }
+
+    public LocalDateTime getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public LocalDateTime getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(LocalDateTime updatedTime) {
+        this.updatedTime = updatedTime;
+    }
 }

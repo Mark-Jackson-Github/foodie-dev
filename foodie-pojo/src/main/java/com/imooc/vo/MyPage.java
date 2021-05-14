@@ -29,4 +29,28 @@ public class MyPage<T> {
         this.records =page.getTotal();
     }
 
+
+    public List<T> getRows() {
+        return rows;
+    }
+
+    public void setRows(List<T> rows) {
+        this.rows = rows;
+    }
+
+    public long getTotal() {
+        return total;
+    }
+
+    public void setTotal(long total) {
+        this.total = total;
+    }
+
+    public long getRecords() {
+        return records;
+    }
+
+    public void setRecords(long records) {
+        this.records = records;
+    }
 }

@@ -65,4 +65,67 @@ public class OrderStatus implements Serializable {
     private LocalDateTime commentTime;
 
 
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public Integer getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(Integer orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public LocalDateTime getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public LocalDateTime getPayTime() {
+        return payTime;
+    }
+
+    public void setPayTime(LocalDateTime payTime) {
+        this.payTime = payTime;
+    }
+
+    public LocalDateTime getDeliverTime() {
+        return deliverTime;
+    }
+
+    public void setDeliverTime(LocalDateTime deliverTime) {
+        this.deliverTime = deliverTime;
+    }
+
+    public LocalDateTime getSuccessTime() {
+        return successTime;
+    }
+
+    public void setSuccessTime(LocalDateTime successTime) {
+        this.successTime = successTime;
+    }
+
+    public LocalDateTime getCloseTime() {
+        return closeTime;
+    }
+
+    public void setCloseTime(LocalDateTime closeTime) {
+        this.closeTime = closeTime;
+    }
+
+    public LocalDateTime getCommentTime() {
+        return commentTime;
+    }
+
+    public void setCommentTime(LocalDateTime commentTime) {
+        this.commentTime = commentTime;
+    }
 }
