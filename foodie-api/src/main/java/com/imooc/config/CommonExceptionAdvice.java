@@ -24,7 +24,7 @@ public class CommonExceptionAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResultModel handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        log.error("参数验证失败:{}", e.getMessage());
+//        log.error("参数验证失败:{}", e.getMessage());
         BindingResult result = e.getBindingResult();
         List<FieldError> errorList = e.getBindingResult().getFieldErrors();
         List<String> errorMessages = errorList.stream().map(x->{
@@ -36,7 +36,7 @@ public class CommonExceptionAdvice {
 
     @ExceptionHandler(RuntimeException.class)
     public ResultModel handleRuntimeException(RuntimeException e) {
-        log.error("运行时异常:{}", e.getMessage());
+//        log.error("运行时异常:{}", e.getMessage());
         return ResultModel.errorMsg(e.getMessage());
     }
 }
