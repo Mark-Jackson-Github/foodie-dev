@@ -1,4 +1,4 @@
-package com.wjw.utils;
+package com.imooc.utils;
 
 import java.util.List;
 

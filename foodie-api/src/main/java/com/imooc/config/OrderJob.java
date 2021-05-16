@@ -1,7 +1,8 @@
-package com.wjw.config;
+package com.imooc.config;
 
-import com.wjw.service.OrderService;
-import com.wjw.utils.DateUtil;
+
+import com.imooc.service.OrderService;
+import com.imooc.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

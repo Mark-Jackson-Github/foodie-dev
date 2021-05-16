@@ -1,4 +1,4 @@
-package com.wjw.utils;
+package com.imooc.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;

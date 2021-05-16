@@ -1,9 +1,9 @@
-package com.wjw.service;
+package com.imooc.service;
 
-import com.wjw.pojo.Carousel;
-import com.wjw.pojo.OrderStatus;
-import com.wjw.pojo.bo.SubmitOrderBO;
-import com.wjw.pojo.vo.OrderVO;
+
+import com.imooc.bo.SubmitOrderBO;
+import com.imooc.pojo.OrderStatus;
+import com.imooc.vo.OrderVO;
 
 import java.util.List;
 

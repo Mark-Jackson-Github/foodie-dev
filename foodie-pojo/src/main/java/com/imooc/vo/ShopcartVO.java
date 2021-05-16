@@ -1,4 +1,4 @@
-package com.wjw.pojo.vo;
+package com.imooc.vo;
 
 /**
  * 2 * @Author: 小王同学

@@ -1,82 +1,138 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.imooc.mapper.ItemsMapperCustom">
-    <select id="queryItemComments" parameterType="map" resultType="com.imooc.vo.ItemCommentVO">
+<mapper namespace="com.wjw.mapper.ItemsMapperCustom" >
+  <select id="queryItemComments" parameterType="Map" resultType="com.wjw.pojo.vo.ItemCommentVO">
+    SELECT
+        ic.comment_level as commentLevel,
+        ic.content as content,
+        ic.spec_name as specName,
+        ic.created_time as createdTime,
+        u.face as userFace,
+        u.nickname as nickname
+    FROM
+        items_comments as ic
+    LEFT JOIN
+        users as u
+    ON
+        ic.user_id = u.id
+    WHERE
+        ic.item_id = #{paramsMap.itemId}
+        <if test="paramsMap.level != null and paramsMap.level != ''">
+        AND ic.comment_level = #{paramsMap.level}
+        </if>
+  </select>
+
+    <select id="searchItems" parameterType="Map" resultType="com.wjw.pojo.vo.SearchItemsVO">
         SELECT
-            ic.comment_level as commentLevel,
-            ic.content,
-            ic.sepc_name as specName,
-            ic.created_time as createdTime,
-            u.face as userFace,
-            u.nickname
+            i.id as itemId,
+            i.item_name as itemName,
+            i.sell_counts as sellCounts,
+            ii.url as imgUrl,
+            tempSpec.price_discount as price
         FROM
-            items_comments ic
-                LEFT JOIN users u ON ic.user_id = u.id
-        WHERE
-            ic.item_id = #{ItemsId}
-            <if test="level != null and level != '' ">
-                AND ic.comment_level = #{level}
-            </if>
-    </select>
-    <select id="searchItems" resultType="com.imooc.vo.SearchItemsVO">
-        SELECT
-            i.id AS itemId,
-            i.item_name AS itemName,
-            i.sell_counts AS sellCounts,
-            ii.url as  imgUrl,
-            tempSpec.priceDiscount as price
-        FROM
-            items i
-                LEFT JOIN items_img ii ON i.id = ii.item_id
-                LEFT JOIN (	SELECT item_id,MIN(price_discount) as priceDiscount  FROM items_spec GROUP BY  item_id) tempSpec
-                          on i.id = tempSpec.item_id
+            items as i
+        LEFT JOIN
+            items_img ii
+        ON
+            i.id = ii.item_id
+        LEFT JOIN
+            ( SELECT item_id, MIN(price_discount) as price_discount FROM items_spec GROUP BY item_id ) as tempSpec
+        ON
+            i.id = tempSpec.item_id
         WHERE
             ii.is_main = 1
-            <if test="Keywords != null and Keywords != '' ">
-                AND i.item_name like '%${Keywords}%'
+            <if test="paramsMap.keywords != null and paramsMap.keywords != ''">
+                AND i.item_name like '%${paramsMap.keywords}%'
             </if>
             order by
             <choose>
-                <when test="sort==&quot;c&quot;">
+                <when test="paramsMap.sort == &quot;c&quot; ">
                     i.sell_counts desc
                 </when>
-                <when test="sort==&quot;p&quot;">
-                    tempSpec.priceDiscount asc
+                <when test="paramsMap.sort == &quot;p&quot; ">
+                    tempSpec.price_discount asc
                 </when>
                 <otherwise>
                     i.item_name asc
                 </otherwise>
             </choose>
-
     </select>
+<!--    k：默认排序（按name）-->
+<!--    c：按销量排-->
+<!--    p：按价格排-->
 
-    <select id="searchItemsByThirdCat" resultType="com.imooc.vo.SearchItemsVO">
+    <select id="searchItemsByThirdCat" parameterType="Map" resultType="com.wjw.pojo.vo.SearchItemsVO">
         SELECT
-        i.id AS itemId,
-        i.item_name AS itemName,
-        i.sell_counts AS sellCounts,
-        ii.url as  imgUrl,
-        tempSpec.priceDiscount as price
+            i.id as itemId,
+            i.item_name as itemName,
+            i.sell_counts as sellCounts,
+            ii.url as imgUrl,
+            tempSpec.price_discount as price
         FROM
-        items i
-        LEFT JOIN items_img ii ON i.id = ii.item_id
-        LEFT JOIN (	SELECT item_id,MIN(price_discount) as priceDiscount  FROM items_spec GROUP BY  item_id) tempSpec
-        on i.id = tempSpec.item_id
+            items as i
+        LEFT JOIN
+            items_img ii
+        ON
+            i.id = ii.item_id
+        LEFT JOIN
+            ( SELECT item_id, MIN(price_discount) as price_discount FROM items_spec GROUP BY item_id ) as tempSpec
+        ON
+            i.id = tempSpec.item_id
         WHERE
-        ii.is_main = 1
-        AND i.cat_id = #{catId}
+            ii.is_main = 1
+        AND
+            i.cat_id = #{paramsMap.catId}
         order by
         <choose>
-            <when test="sort==&quot;c&quot;">
+            <when test="paramsMap.sort == &quot;c&quot; ">
                 i.sell_counts desc
             </when>
-            <when test="sort==&quot;p&quot;">
-                tempSpec.priceDiscount asc
+            <when test="paramsMap.sort == &quot;p&quot; ">
+                tempSpec.price_discount asc
             </when>
             <otherwise>
                 i.item_name asc
             </otherwise>
         </choose>
-
     </select>
+
+    <select id="queryItemsBySpecIds" parameterType="List" resultType="com.wjw.pojo.vo.ShopcartVO">
+        SELECT
+            t_items.id as itemId,
+            t_items.item_name as itemName,
+            t_items_img.url as itemImgUrl,
+            t_times_spec.id as specId,
+            t_times_spec.`name` as specName,
+            t_times_spec.price_discount as priceDiscount,
+            t_times_spec.price_normal as priceNormal
+        FROM
+            items_spec as t_times_spec
+        LEFT JOIN
+            items as t_items
+        ON
+            t_items.id = t_times_spec.item_id
+        LEFT JOIN
+            items_img as t_items_img
+        ON
+            t_items_img.item_id = t_items.id
+        WHERE
+            t_items_img.is_main = 1
+        AND
+            t_times_spec.id IN
+            <foreach collection="paramsList" index="index" item="specId" open="(" separator="," close=")">
+                #{specId}
+            </foreach>
+    </select>
+
+    <update id="decreaseItemSpecStock">
+        update
+            items_spec
+        set
+            stock = stock - #{pendingCounts}
+        where
+            id = #{specId}
+        and
+            stock >= #{pendingCounts}
+    </update>
+
 </mapper>

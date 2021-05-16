@@ -1,20 +1,17 @@
-package com.wjw.service.impl;
+package com.imooc.service.impl;
 
-import com.wjw.enums.YesOrNo;
-import com.wjw.mapper.CarouselMapper;
-import com.wjw.mapper.UserAddressMapper;
-import com.wjw.pojo.Carousel;
-import com.wjw.pojo.UserAddress;
-import com.wjw.pojo.bo.AddressBO;
-import com.wjw.service.AddressService;
-import com.wjw.service.CarouselService;
+
+import com.imooc.bo.AddressBO;
+import com.imooc.enums.YesOrNo;
+import com.imooc.mapper.UserAddressMapper;
+import com.imooc.pojo.UserAddress;
+import com.imooc.service.AddressService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
 import java.util.List;

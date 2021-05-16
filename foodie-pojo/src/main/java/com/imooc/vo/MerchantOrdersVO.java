@@ -1,4 +1,4 @@
-package com.wjw.pojo.vo;
+package com.imooc.vo;
 
 public class MerchantOrdersVO {
 

@@ -1,23 +1,16 @@
-package com.wjw.service.impl;
+package com.imooc.service.impl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import com.wjw.enums.CommentLevel;
-import com.wjw.enums.YesOrNo;
-import com.wjw.mapper.*;
-import com.wjw.pojo.*;
-import com.wjw.pojo.vo.CommentLevelCountsVO;
-import com.wjw.pojo.vo.ItemCommentVO;
-import com.wjw.pojo.vo.SearchItemsVO;
-import com.wjw.pojo.vo.ShopcartVO;
-import com.wjw.service.ItemService;
-import com.wjw.utils.DesensitizationUtil;
-import com.wjw.utils.PagedGridResult;
+
+import com.imooc.enums.CommentLevel;
+import com.imooc.mapper.*;
+import com.imooc.pojo.*;
+import com.imooc.service.ItemService;
+import com.imooc.vo.CommentLevelCountsVO;
+import io.swagger.annotations.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.Collections;

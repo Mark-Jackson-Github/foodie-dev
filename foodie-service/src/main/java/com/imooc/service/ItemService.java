@@ -1,13 +1,14 @@
-package com.wjw.service;
+package com.imooc.service;
 
-import com.wjw.pojo.Items;
-import com.wjw.pojo.ItemsImg;
-import com.wjw.pojo.ItemsParam;
-import com.wjw.pojo.ItemsSpec;
-import com.wjw.pojo.vo.CommentLevelCountsVO;
-import com.wjw.pojo.vo.ItemCommentVO;
-import com.wjw.pojo.vo.ShopcartVO;
-import com.wjw.utils.PagedGridResult;
+
+
+import com.imooc.pojo.Items;
+import com.imooc.pojo.ItemsImg;
+import com.imooc.pojo.ItemsParam;
+import com.imooc.pojo.ItemsSpec;
+import com.imooc.utils.PagedGridResult;
+import com.imooc.vo.CommentLevelCountsVO;
+import com.imooc.vo.ShopcartVO;
 
 import java.util.List;
 

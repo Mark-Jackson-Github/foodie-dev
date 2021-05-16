@@ -1,4 +1,4 @@
-package com.wjw.utils;
+package com.imooc.utils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;

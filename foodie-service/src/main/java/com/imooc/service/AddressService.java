@@ -1,8 +1,8 @@
-package com.wjw.service;
+package com.imooc.service;
 
-import com.wjw.pojo.Carousel;
-import com.wjw.pojo.UserAddress;
-import com.wjw.pojo.bo.AddressBO;
+
+import com.imooc.bo.AddressBO;
+import com.imooc.pojo.UserAddress;
 
 import java.util.List;
 
